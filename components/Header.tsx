@@ -66,7 +66,7 @@ export default function Header() {
                 dir="ltr"
                 className="mt-0.5 font-display text-[10px] font-medium uppercase tracking-[0.35em] text-champagne"
               >
-                Mahaco
+                Mehaco
               </span>
             </Link>
           </div>

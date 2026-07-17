@@ -1,10 +1,10 @@
-# Mahaco (محاکو) — Online Boutique
+# Mehaco (محاکو) — Online Boutique
 
-Online boutique for the **Mahaco** brand: women's sleepwear, loungewear, and evening collections, built for the Iranian market (Persian, fully RTL).
+Online boutique for the **Mehaco** brand: women's sleepwear, loungewear, and evening collections, built for the Iranian market (Persian, fully RTL).
 
 > Delicate. Silky. Luxurious.
 
-Version 1 implements the "Mahaco Website Design Document" faithfully: minimal, luxurious, mobile-first, and entirely right-to-left.
+Version 1 implements the "Mehaco Website Design Document" faithfully: minimal, luxurious, mobile-first, and entirely right-to-left.
 
 ## Getting started
 
@@ -37,7 +37,7 @@ npm run build && npm start
 
 | Path | Description |
 |---|---|
-| `app/page.tsx` | Home: hero, category cards, new arrivals, bestsellers, "Why Mahaco", Instagram gallery |
+| `app/page.tsx` | Home: hero, category cards, new arrivals, bestsellers, "Why Mehaco", Instagram gallery |
 | `app/shop` + `components/ShopClient.tsx` | Shop with size / fabric / price filters |
 | `app/product/[slug]` + `components/ProductDetail.tsx` | Product page: gallery, size, quantity, cart, description / fabric / care / size-guide sections, similar products |
 | `app/cart`, `app/checkout` | Cart and test checkout (with full form validation) |

@@ -63,7 +63,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-taupe">
               <li>
                 <a
-                  href="https://instagram.com/mahaco"
+                  href="https://instagram.com/mehaco"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2.5 transition-colors hover:text-champagne-deep"
@@ -85,11 +85,11 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:hello@mahaco.ir"
+                  href="mailto:hello@mehaco.ir"
                   className="flex items-center gap-2.5 transition-colors hover:text-champagne-deep"
                 >
                   <MailIcon size={18} />
-                  <span dir="ltr">hello@mahaco.ir</span>
+                  <span dir="ltr">hello@mehaco.ir</span>
                 </a>
               </li>
             </ul>

@@ -18,13 +18,13 @@ export default function ContactPage() {
         <ul className="space-y-4">
           <li>
             <a
-              href="https://instagram.com/mahaco"
+              href="https://instagram.com/mehaco"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 transition-colors hover:text-champagne-deep"
             >
               <InstagramIcon size={20} className="text-champagne" />
-              اینستاگرام: <span dir="ltr">@mahaco</span>
+              اینستاگرام: <span dir="ltr">@mehaco</span>
             </a>
           </li>
           <li>
@@ -40,11 +40,11 @@ export default function ContactPage() {
           </li>
           <li>
             <a
-              href="mailto:hello@mahaco.ir"
+              href="mailto:hello@mehaco.ir"
               className="flex items-center gap-3 transition-colors hover:text-champagne-deep"
             >
               <MailIcon size={20} className="text-champagne" />
-              ایمیل: <span dir="ltr">hello@mahaco.ir</span>
+              ایمیل: <span dir="ltr">hello@mehaco.ir</span>
             </a>
           </li>
         </ul>

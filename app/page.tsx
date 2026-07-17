@@ -177,7 +177,7 @@ export default function HomePage() {
       {/* چرا محاکو؟ */}
       <section className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
         <div className="mb-10 text-center md:mb-14">
-          <p className="eyebrow text-sm">Why Mahaco</p>
+          <p className="eyebrow text-sm">Why Mehaco</p>
           <h2 className="section-title mt-1.5">چرا محاکو؟</h2>
         </div>
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
@@ -196,14 +196,14 @@ export default function HomePage() {
       {/* گالری اینستاگرام */}
       <section className="mx-auto max-w-7xl px-4 pb-16 md:px-8 md:pb-24">
         <div className="mb-8 text-center md:mb-10">
-          <p className="eyebrow text-sm">@mahaco</p>
+          <p className="eyebrow text-sm">@mehaco</p>
           <h2 className="section-title mt-1.5">محاکو در اینستاگرام</h2>
         </div>
         <div className="grid grid-cols-3 gap-2 md:grid-cols-6 md:gap-3">
           {IG_IMAGES.map((src, i) => (
             <a
               key={src}
-              href="https://instagram.com/mahaco"
+              href="https://instagram.com/mehaco"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative block aspect-square overflow-hidden bg-cream"
