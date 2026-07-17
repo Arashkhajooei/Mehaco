@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: #faf7f2;
+  --color-cream: #f3ede3;
+  --color-charcoal: #2b2724;
+  --color-taupe: #6e655b;
+  --color-champagne: #b08d57;
+  --color-champagne-deep: #96723f;
+  --color-blush: #ead8d1;
+  --color-line: #e8e0d4;
+
+  --font-sans: var(--font-vazirmatn), "Vazirmatn", "Tahoma", sans-serif;
+  --font-display: var(--font-cormorant), "Cormorant Garamond", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-white, #fff);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--color-champagne) 25%, transparent);
+}
+
+:focus-visible {
+  outline: 1.5px solid var(--color-champagne);
+  outline-offset: 3px;
+}
+
+@layer components {
+  /* English serif micro-label used as the brand signature above Persian headings.
+     champagne-deep (نه champagne) تا کنتراست AA روی سفید/آیوری برقرار بماند */
+  .eyebrow {
+    direction: ltr;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    color: var(--color-champagne-deep);
+    letter-spacing: 0.08em;
+  }
+
+  .section-title {
+    font-weight: 300;
+    font-size: 1.75rem;
+    line-height: 1.4;
+  }
+
+  @media (min-width: 768px) {
+    .section-title {
+      font-size: 2.25rem;
+    }
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: var(--color-charcoal);
+    color: #fff;
+    padding: 0.875rem 2.5rem;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-champagne-deep);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 1px solid var(--color-charcoal);
+    color: var(--color-charcoal);
+    padding: 0.875rem 2.5rem;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--color-champagne-deep);
+    color: var(--color-champagne-deep);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .fade-up {
+    animation: fadeUp 0.9s ease both;
+  }
+  .fade-up-delay-1 {
+    animation: fadeUp 0.9s 0.15s ease both;
+  }
+  .fade-up-delay-2 {
+    animation: fadeUp 0.9s 0.3s ease both;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
