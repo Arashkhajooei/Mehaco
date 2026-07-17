@@ -12,12 +12,17 @@ export default function SearchOverlay({ onClose }: { onClose: () => void }) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    // فوکوس هنگام بستن باید به عنصر قبلی (دکمه جستجو) برگردد
+    const previouslyFocused = document.activeElement as HTMLElement | null;
     inputRef.current?.focus();
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      previouslyFocused?.focus?.();
+    };
   }, [onClose]);
 
   const results = useMemo(() => {
