@@ -1,69 +1,68 @@
-# محاکو (Mahaco) — فروشگاه آنلاین
+# Mahaco (محاکو) — Online Boutique
 
-بوتیک آنلاین برند **محاکو**؛ لباس خواب، لباس راحتی و کالکشن‌های مجلسی زنانه.
+Online boutique for the **Mahaco** brand: women's sleepwear, loungewear, and evening collections, built for the Iranian market (Persian, fully RTL).
 
 > Delicate. Silky. Luxurious.
 
-نسخه اول (v1) بر اساس «سند نهایی طراحی سایت محاکو» پیاده‌سازی شده است:
-مینیمال، لوکس، Mobile First و کاملاً راست‌به‌چپ (RTL).
+Version 1 implements the "Mahaco Website Design Document" faithfully: minimal, luxurious, mobile-first, and entirely right-to-left.
 
-## اجرا
+## Getting started
 
-نیازمندی: Node.js ‏22 (فایل `.nvmrc` موجود است).
+Requires Node.js 22 (an `.nvmrc` is included).
 
 ```bash
-nvm use          # یا هر روش دیگری برای Node 22
+nvm use          # or any other way to activate Node 22
 npm install
 npm run dev      # http://localhost:3000
 ```
 
-بیلد production:
+Production build:
 
 ```bash
 npm run build && npm start
 ```
 
-> نکته: `npm run build` را هنگام روشن بودن سرور dev اجرا نکنید؛ هر دو از پوشه
-> `.next` مشترک استفاده می‌کنند و کش dev خراب می‌شود.
+> Note: don't run `npm run build` while the dev server is running — both share the
+> `.next` directory and the dev cache will get corrupted.
 
-## پشته فنی
+## Tech stack
 
-- **Next.js 15** (App Router، خروجی کاملاً استاتیک — سریع و سبک، ~۱۱۰KB JS)
-- **Tailwind CSS v4** — توکن‌های برند در `app/globals.css` (بلوک `@theme`)
+- **Next.js 15** (App Router, fully static output — fast and light, ~110 KB JS)
+- **Tailwind CSS v4** — brand tokens live in `app/globals.css` (`@theme` block)
 - **TypeScript**
-- فونت فارسی: **وزیرمتن** (جایگزین رایگانِ ایران‌یکان‌X تا زمان خرید لایسنس)
-- فونت امضای انگلیسی: **Cormorant Garamond**
+- Persian font: **Vazirmatn** (free stand-in for IRAN Yekan X until a license is purchased)
+- English signature font: **Cormorant Garamond**
 
-## ساختار
+## Structure
 
-| مسیر | توضیح |
+| Path | Description |
 |---|---|
-| `app/page.tsx` | صفحه اصلی: هیرو، دسته‌بندی، کالکشن جدید، پرفروش‌ها، چرا محاکو، گالری اینستاگرام |
-| `app/shop` + `components/ShopClient.tsx` | فروشگاه با فیلتر سایز/جنس پارچه/قیمت |
-| `app/product/[slug]` + `components/ProductDetail.tsx` | صفحه محصول: گالری، سایز، تعداد، سبد، توضیحات/پارچه/شستشو/راهنمای سایز، محصولات مشابه |
-| `app/cart`، `app/checkout` | سبد خرید و ثبت سفارش آزمایشی (با اعتبارسنجی فرم) |
-| `app/about`، `contact`، `faq`، `size-guide`، `shipping`، `returns`، `shopping-guide`، `account` | صفحات اطلاعاتی |
-| `lib/products.ts` | کاتالوگ محصولات (فعلاً استاتیک — ۱۴ محصول نمونه) |
-| `lib/cart.tsx` | Context سبد خرید: localStorage، همگام‌سازی بین تب‌ها، سقف تعداد ۱۰ |
-| `lib/format.ts` | قیمت و ارقام فارسی |
+| `app/page.tsx` | Home: hero, category cards, new arrivals, bestsellers, "Why Mahaco", Instagram gallery |
+| `app/shop` + `components/ShopClient.tsx` | Shop with size / fabric / price filters |
+| `app/product/[slug]` + `components/ProductDetail.tsx` | Product page: gallery, size, quantity, cart, description / fabric / care / size-guide sections, similar products |
+| `app/cart`, `app/checkout` | Cart and test checkout (with full form validation) |
+| `app/about`, `contact`, `faq`, `size-guide`, `shipping`, `returns`, `shopping-guide`, `account` | Info pages |
+| `lib/products.ts` | Product catalog (currently static — 14 sample products) |
+| `lib/cart.tsx` | Cart context: localStorage, cross-tab sync, quantity cap of 10 |
+| `lib/format.ts` | Persian price and digit formatting |
 
-## وضعیت نسخه اول (چه چیزهایی آزمایشی است)
+## v1 status (what is still placeholder)
 
-- **عکس‌ها**: از Unsplash برای تست دانلود شده‌اند (`public/images/`) و باید با
-  عکاسی واقعی برند جایگزین شوند. طراحی برای عکس‌های ۳:۴ عمودی بهینه است.
-- **پرداخت**: دکمه «ثبت سفارش آزمایشی» سفارش را بدون پرداخت ثبت می‌کند.
-  اتصال زرین‌پال/درگاه دیگر برای نسخه نهایی لازم است.
-- **محصولات**: در `lib/products.ts` هاردکد شده‌اند؛ برای مدیریت بدون برنامه‌نویس،
-  اتصال به یک CMS یا پنل ادمین در گام بعد پیشنهاد می‌شود.
-- **حساب کاربری**: فقط UI است؛ ورود با کد پیامکی باید پیاده شود.
-- **نماد اعتماد**: جای‌نگهدار در فوتر — پس از دریافت eNamad جایگزین شود.
-- **فونت**: در صورت خرید لایسنس ایران‌یکان‌X، فقط `app/layout.tsx` و
-  `--font-sans` در `globals.css` تغییر می‌کند.
+- **Photos**: downloaded from Unsplash for testing (`public/images/`) and should be
+  replaced with real brand photography. The design is optimized for 3:4 portrait shots.
+- **Payment**: the "place test order" button records the order without payment.
+  Connecting Zarinpal (or another gateway) is required for the production release.
+- **Products**: hardcoded in `lib/products.ts`; to manage products without a developer,
+  connecting a CMS or admin panel is the recommended next step.
+- **User accounts**: UI only; SMS one-time-code login still needs to be implemented.
+- **Trust badge**: a placeholder in the footer — replace once the eNamad seal is issued.
+- **Font**: if an IRAN Yekan X license is purchased, only `app/layout.tsx` and
+  `--font-sans` in `globals.css` need to change.
 
-## نقشه راه پیشنهادی نسخه ۲
+## Suggested v2 roadmap
 
-1. اتصال درگاه پرداخت (زرین‌پال) + ثبت سفارش سمت سرور
-2. پنل مدیریت محصول (یا CMS بدون سر مثل Strapi/Sanity، یا Supabase)
-3. ورود با OTP پیامکی
-4. اتصال واقعی گالری اینستاگرام
-5. میزبانی: خروجی استاتیک روی CDN داخلی (مثل ابر آروان) برای سرعت داخل ایران
+1. Payment gateway integration (Zarinpal) + server-side order handling
+2. Product admin panel (or a headless CMS such as Strapi/Sanity, or Supabase)
+3. SMS OTP login
+4. Real Instagram gallery integration
+5. Hosting: static output on an Iran-local CDN (e.g. ArvanCloud) for fast in-country loading
